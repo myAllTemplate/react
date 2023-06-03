@@ -7,12 +7,10 @@ import {
 } from 'react-redux'
 
 import counterReducer from './demo/counterSlice'
-import loginReducer from './login/login'
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    login: loginReducer
+    counter: counterReducer
   }
 })
 

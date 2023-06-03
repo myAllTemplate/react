@@ -3,8 +3,7 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 
-const Login = React.lazy(() => import('@/views/login'))
-const Index = React.lazy(() => import('@/views/main'))
+const Index = React.lazy(() => import('@/views/index'))
 
 declare module 'react-router' {
   interface IndexRouteObject {
@@ -30,35 +29,12 @@ declare module 'react-router' {
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Navigate to="/login" />
+    element: <Navigate to="/index" />
   },
   {
-    path: '/login',
-    element: <Login />
-  },
-  {
-    path: '/main',
-    // element: <Navigate to="/main/index7" />
-    children: []
+    path: '/index',
+    element: <Index />
   }
-  // {
-  //   path: '/main/index7',
-  //   element: <Index />
-  // }
 ]
-const main = routes.filter((item) => item.path == '/main')[0].children
-// console.log(main)
-export const addRoutes = (routes: any) => {
-  routes.forEach((item: RouteObject) => {
-    main?.push(item)
-  })
-}
 
-// main?.push(
-//   {
-//     path: '/main',
-//     element: <Navigate to="/main/index7" />
-//   },
-//   { path: '/main/index7', element: <Index /> }
-// )
 export default routes
